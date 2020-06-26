@@ -1,0 +1,47 @@
+﻿@page "/User/Register"
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto"> 
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Register</h3>
+                </div>
+                <img src="~/images/icons/logo.png" class="mx-auto w-25" />
+                <label class="card-body">
+                    <form method="post">
+                        <div class="form-group">
+
+                            <input asp-for="Input.Email" placeholder="E-mail" class="form-control" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input asp-for="Input.Password" placeholder="Password" class="form-control" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input asp-for="Input.ConfirmPassword" placeholder="Confirm Password" class="form-control" />  
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <div class="form btn-group">
+                            <button type="submit" class="btn btn-primary">Register</button>  
+                        </div>
+                    </form>
+
+                    <label id="Message" class="text-danger">@Html.DisplayFor(m => m.Input.ErrorMessage)</label>  
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
